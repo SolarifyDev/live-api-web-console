@@ -56,7 +56,7 @@ function AltairComponent() {
       },
       contextWindowCompression: { slidingWindow: {} },
       tools: [
-        { googleSearch: {} }
+        // { googleSearch: {} }
       ]
     });
   }, [setConfig, setModel]);
