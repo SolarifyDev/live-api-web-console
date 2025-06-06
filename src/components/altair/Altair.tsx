@@ -48,20 +48,16 @@ function AltairComponent() {
     setConfig({
       responseModalities: [Modality.AUDIO],
       speechConfig: {
-        voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } },
+        languageCode: "cmn-CN",
+        voiceConfig: { prebuiltVoiceConfig: { voiceName: "Kore" } },
       },
-      systemInstruction: {
-        parts: [
-          {
-            text: 'You are my helpful assistant. Any time I ask you for a graph call the "render_altair" function I have provided you. Dont ask for additional information just make your best judgement.',
-          },
-        ],
+      realtimeInputConfig: {
+        automaticActivityDetection: { silenceDurationMs: 500 },
       },
+      contextWindowCompression: { slidingWindow: {} },
       tools: [
-        // there is a free-tier quota for search
-        { googleSearch: {} },
-        { functionDeclarations: [declaration] },
-      ],
+        { googleSearch: {} }
+      ]
     });
   }, [setConfig, setModel]);
 
